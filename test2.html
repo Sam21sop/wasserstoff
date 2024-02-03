@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hexagon Canvas</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    canvas {
+      width: 70%;
+      height: 70%;
+      background-color: #f0f0f0; /* Set a background color for the canvas */
+    }
+  </style>
+</head>
+<body>
+  <canvas id="hexagonCanvas"></canvas>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const canvas = document.getElementById("hexagonCanvas");
+      const context = canvas.getContext("2d");
+
+      // Function to draw a hexagon on the canvas
+      function drawHexagon() {
+        context.beginPath();
+        const sideLength = 50; // Adjust the side length as needed
+        const apothem = Math.sqrt(3) / 2 * sideLength;
+
+        // Move to the starting point
+        context.moveTo(canvas.width / 2 + sideLength / 2, canvas.height / 2);
+
+        // Draw the hexagon
+        for (let i = 1; i <= 6; i++) {
+          const angleRad = (i * 60 * Math.PI) / 180;
+          const x = canvas.width / 2 + sideLength * Math.cos(angleRad);
+          const y = canvas.height / 2 + sideLength * Math.sin(angleRad);
+          context.lineTo(x, y);
+        }
+
+        // Close the path and fill the hexagon
+        context.closePath();
+        context.fillStyle = "white"; // Set the fill color
+        context.fill();
+      }
+
+      // Call the drawHexagon function
+      drawHexagon();
+    });
+  </script>
+</body>
+</html>

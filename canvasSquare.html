@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    canvas {
+      border: 2px solid #dd1212; /* Optional: Add a border to the canvas */
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="1208" height="708"></canvas>
+
+<script>
+  const canvas = document.getElementById('myCanvas');
+  const ctx = canvas.getContext('2d');
+
+  // Function to draw a rectangle with styles
+  function drawRectangle(x, y, width, height, fillColor, borderColor, margin) {
+    // Draw the white background
+    ctx.fillStyle = 'white';
+    ctx.fillRect(x - margin, y - margin, width + 2 * margin, height + 2 * margin);
+    
+    // Draw the colored rectangle
+    ctx.fillStyle = fillColor;
+    ctx.fillRect(x, y, width, height);
+
+    // Draw the border
+    ctx.strokeStyle = borderColor;
+    ctx.lineWidth = 1;
+    ctx.strokeRect(x - margin, y - margin, width + 2 * margin, height + 2 * margin);
+  }
+
+  // Fill the outer rectangle with small rectangles
+  const boxWidth = 13.58;
+  const boxHeight = 16.59;
+  const margin = 1.94;
+
+  for (let y = 0; y < canvas.height; y += boxHeight) {
+    for (let x = 0; x < canvas.width; x += boxWidth) {
+      // Set a different fill color and border color for each small rectangle
+      const fillColor = 'red';
+      const borderColor = 'black';
+      drawRectangle(x, y, boxWidth, boxHeight, fillColor, borderColor, margin);
+    }
+  }
+</script>
+
+</body>
+</html>

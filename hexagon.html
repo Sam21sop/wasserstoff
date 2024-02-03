@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>White Hexagon</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #dacdf3;
+    }
+    .hexagon-container {
+      /* position: relative; */
+      width: 13.58px;
+      height: 16.49px;
+      border: 1px solid black;
+    }
+    .hexagon {
+      width: 100%;
+      padding-bottom: 100%;
+      left: 52.07%;
+      right: 46.92%;
+      top: 90.64%;
+      bottom: 7.18%;
+      background-color: rgb(247, 243, 243);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+    .hexagon2{
+      width: 100%;
+      padding-bottom: 100%;
+      left: 50.91%;
+      right: 48.08%;
+      top: 90.64%;
+      bottom: 7.18%;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: #FFFFFF;
+    }
+  </style>
+</head>
+<body>
+    <div class="hexagon-container">
+        <div class="hexagon"></div>
+    </div>
+    <div class="hexagon-container">
+      <div class="hexagon2"></div>
+    </div>
+    <div class="hexagon-container">
+      <div class="hexagon3"></div>
+    </div>
+</body>
+</html>

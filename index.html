@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexagon</title>
+    <style>
+        canvas{
+            border: 1px solid #000;
+            margin-left: 30%;
+            position: sticky;
+            background-color: rgb(210, 218, 208);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1000" height="542"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const a = 2 * Math.PI / 6;
+        const r = 8;
+
+        function init() {
+            drawGrid(canvas.width, canvas.height);
+        }
+        init();
+
+        function drawGrid(width, height) {
+            for (let y = r; y + r * Math.sin(a) < height; y += r * Math.tan(a)) {
+                for (let x = r, j = 0; x + r * (1 + Math.sin(a)) < width; x += 4 * (1 + Math.sin(a)), y += (-1) ** j++ * r * Math.tan(a)) {
+                    drawHexagon(x, y);
+                }
+            }
+        }
+
+        function drawHexagon(x, y) {
+            ctx.beginPath();
+            for (var i = 0; i < 6; i++) {
+                ctx.lineTo(x + r * Math.sin(a * i), y + r * Math.cos(a * i));
+            }
+            ctx.closePath();
+
+            // Fill with red color
+            ctx.fillStyle = 'white';
+            ctx.fill();
+
+            // Add a black border
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            // Add shadow
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 5;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+        }
+    </script>
+
+
+
+
+    <!-- <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const a = 2 * Math.PI / 6;
+        const r = 8;
+
+        function init() {
+            drawGrid(canvas.width, canvas.height);
+        }
+        init();
+
+        function drawGrid(width, height) {
+            for (let y = r; y + r * Math.sin(a) < height; y += r * Math.tan(a)) {
+                for (let x = r, j = 0; x + r * (1 + Math.sin(a)) < width; x += 4 * (1 + Math.sin(a)), y += (-1) ** j++ * r * Math.tan(a)) {
+                    drawHexagon(x, y);
+                }
+            }
+        }
+
+        function drawHexagon(x, y) {
+            ctx.beginPath();
+            for (var i = 0; i < 6; i++) {
+                ctx.lineTo(x + r * Math.sin(a * i), y + r * Math.cos(a * i));
+            }
+            ctx.closePath();
+            ctx.stroke();
+        }
+    </script> -->
+
+    <!-- <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const a = 2 * Math.PI / 6;
+        const r = 13;
+
+        function init() {
+            drawGrid(canvas.width, canvas.height);
+        };
+        init();
+
+        function drawGrid(width, height) {
+            let y = r;
+            for (let x = r, j = 0; x + r * (1 + Math.sin(a)) < width; x += 6 * (1.5 + Math.sin(a)), y += (-1) ** j++ * r * Math.tan(a)) {
+                drawHexagon(x, y);
+            }
+        }
+
+        function drawHexagon(x, y) {
+            ctx.beginPath();
+            for (var i = 0; i < 6; i++) {
+                ctx.lineTo(x + r * Math.sin(a * i), y + r * Math.cos(a * i));
+            }
+            ctx.closePath();
+            ctx.stroke();
+        }
+    </script> -->
+
+
+    
+    <!-- <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const a = 2 * Math.PI / 6;
+        const r = 13;
+
+        function init() {
+        drawHexagon(r, r);
+        }
+        init();
+
+        function drawHexagon(x, y) {
+        ctx.beginPath();
+        for (var i = 0; i < 6; i++) {
+            ctx.lineTo(x + r * Math.sin(a * i), y + r * Math.cos(a * i));
+        }
+        ctx.closePath();
+        ctx.stroke();
+        }
+    </script> -->
+</body>
+</html>
